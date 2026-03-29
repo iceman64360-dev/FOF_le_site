@@ -64,14 +64,47 @@
     <section id="historique" class="reveal">
         <h2 class="section-title">Notre Historique</h2>
         <div class="history-content">
-            <div class="history-text">
-                <p>Fondée par des passionnés de simulation militaire, la <strong>Force Opérationnelle Française</strong>
-                    est née d'un désir de repousser les limites du jeu de rôle tactique sur Arma Reforger.</p>
-                <p>Depuis nos débuts, nous avons évolué d'un petit groupe d'amis à une structure organisée capable de
-                    mener des opérations complexes à grande échelle. Chaque membre de la FOF apporte son expertise pour
-                    créer une expérience immersive inégalée.</p>
-                <p>Notre parcours est marqué par des centaines d'heures d'opérations, allant de la reconnaissance
-                    furtive aux assauts motorisés, toujours avec le souci du réalisme et de la cohésion d'équipe.</p>
+            
+            <!-- Tactical Navigation Tabs -->
+            <div class="history-nav">
+                <button class="history-tab active" data-target="slide-origine">NOTRE HISTOIRE</button>
+                <button class="history-tab" data-target="slide-orga">ORGANISATION</button>
+                <button class="history-tab" data-target="slide-serveurs">SERVEURS</button>
+                <button class="history-tab" data-target="slide-carriere">CARRIÈRE</button>
+            </div>
+
+            <div class="history-slides-container">
+                <!-- Slide 1 : Origine & ADN Mixé -->
+                <div class="history-slide active" id="slide-origine">
+                    <h3 class="adn-subtitle">La genèse et l'esprit FOF</h3>
+                    <p>La <strong>Force Opérationnelle Française (FOF)</strong> est née en <strong>novembre 2023</strong> de la volonté de <strong>sept fondateurs</strong> passionnés de simulation militaire, avec un désir commun : repousser les limites du jeu de rôle tactique sur <strong>Arma Reforger</strong>.</p>
+                    <p>Notre socle est simple mais essentiel : le respect mutuel et la bienveillance. C'est grâce à cette vision que nous avons évolué d'un petit groupe d'amis à une structure militaire massive et paramétrée pour l'immersion totale.</p>
+                    <p>Aujourd'hui, <strong>plus de 8600 membres</strong> font vivre cette communauté au quotidien. Notre parcours est marqué par des centaines d'heures d'opérations régulières, allant de la reconnaissance furtive aux assauts motorisés, toujours avec le souci du réalisme absolu et de la cohésion d'équipe.</p>
+                </div>
+
+                <!-- Slide 3 : Organisation -->
+                <div class="history-slide" id="slide-orga">
+                    <h3 class="adn-subtitle">Une organisation au service du collectif</h3>
+                    <p>Derrière l'expérience de jeu se cache une structure solide. Plusieurs pôles spécialisés — de l'administration au développement, en passant par la communication, la modération et l'état-major — travaillent ensemble pour que chaque joueur trouve sa place dans une machine parfaitement huilée. Nos Game Masters (GM) complètent ce dispositif pour garantir des scénarios immersifs et renouvelés.</p>
+                </div>
+
+                <!-- Slide 4 : Serveurs -->
+                <div class="history-slide" id="slide-serveurs">
+                    <h3 class="adn-subtitle">Vos terrains d'engagement</h3>
+                    <p>Nous mettons à votre disposition trois environnements distincts pour répondre à toutes les envies de simulation :</p>
+                    <ul class="tactical-list">
+                        <li><strong>Le serveur Conflit</strong> représente le cœur de notre activité quotidienne. Accessible en permanence, il propose un cadre semi-RP rigoureux avec une chaîne de commandement, une logistique réelle et un système de sécurité de base. C'est ici que le réalisme de notre gameplay prend tout son sens.</li>
+                        <li><strong>Le serveur Milsim</strong> est le théâtre de nos opérations majeures. C'est l'espace dédié aux missions à grande échelle conçues pour tester votre cohésion. On y retrouve notamment des <strong>"Missions Impacts"</strong> dont la réussite permet de débloquer de nouvelles ressources, ainsi que des <strong>mods exclusifs créés par nos développeurs</strong>, afin d'impacter durablement la situation globale sur le serveur Conflit.</li>
+                        <li><strong>Le serveur Formation</strong> est le passage obligé pour progresser. De vos premiers pas en tant que Recrue jusqu'aux responsabilités de Squad Leader, nous vous accompagnons dans vos spécialisations techniques (Medic, AT, blindés, etc.).</li>
+                    </ul>
+                </div>
+
+                <!-- Slide 5 : Carrière -->
+                <div class="history-slide" id="slide-carriere">
+                    <h3 class="adn-subtitle">Construire votre carrière</h3>
+                    <p>À la FOF, nous croyons au mérite et à l'évolution. Grâce à un suivi hiérarchique précis et des formations régulières, chaque membre peut tracer son propre chemin, débloquer de nouveaux grades et assumer de nouvelles responsabilités.</p>
+                    <p>Ce qui fait notre force, ce sont nos règles cadrées : elles ne sont pas une contrainte, mais la garantie d'une expérience ultra-attractive pour tous ceux qui recherchent un gameplay exigeant et gratifiant.</p>
+                </div>
             </div>
 
         </div>
@@ -496,9 +529,15 @@
                     lettre de motivation traditionnelle, nous vous invitons à nous partager vos aspirations et votre
                     intérêt pour la communauté.</p>
                 <div class="recruitment-steps">
-                    <div class="step">1. Rejoignez notre serveur Discord</div>
-                    <div class="step">2. Présentez vos motivations avec authenticité</div>
-                    <div class="step">3. Ouvrez un "Ticket" pour échanger avec le commandement</div>
+                    <div class="step">1. Préparez votre paquetage réglementaire (Casque & Micro opérationnels requis)</div>
+                    <div class="step">2. Rejoignez notre base de communication Discord</div>
+                    <div class="step">3. Présentez vos motivations avec authenticité</div>
+                    <div class="step">4. Ouvrez un "Ticket" pour échanger avec le commandement</div>
+                </div>
+                
+                <div class="age-warning">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="warning-icon"><path d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"/></svg>
+                    <span><strong>Accès Majeurs (18+) :</strong> Dans une démarche de bienveillance, et afin de préserver les plus jeunes face à l'exigence et l'intensité de nos opérations, le recrutement à la FOF est exclusivement réservé aux joueurs majeurs.</span>
                 </div>
                 <a href="https://discord.gg/hyDbEBJs7X" class="btn-recruitment" target="_blank" rel="noopener">Ouvrir le
                     centre de recrutement</a>

@@ -310,8 +310,125 @@ section {
     color: #00ff41; /* CRT Green */
 }
 
-.history-text p {
+/* History Slides & Tabs */
+.history-nav {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-bottom: 2rem;
+    flex-wrap: wrap; /* important pour mobile */
+}
+
+.history-tab {
+    background: rgba(10, 15, 25, 0.8);
+    border: 1px solid var(--glass-border);
+    color: var(--text-muted);
+    padding: 10px 20px;
+    font-family: 'Rajdhani', sans-serif;
+    font-size: 1.1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    position: relative;
+    overflow: hidden;
+}
+
+.history-tab::before {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0%;
+    height: 2px;
+    background: var(--accent-color);
+    transition: width 0.3s ease;
+}
+
+.history-tab:hover, .history-tab.active {
+    color: var(--text-display);
+    background: rgba(30, 40, 55, 0.9);
+    border-color: rgba(230, 57, 70, 0.5);
+    box-shadow: 0 0 15px rgba(230, 57, 70, 0.1);
+}
+
+.history-tab.active::before {
+    width: 100%;
+}
+
+.history-slides-container {
+    position: relative;
+    min-height: 250px;
+    background: rgba(10, 15, 25, 0.5);
+    border: 1px solid var(--glass-border);
+    padding: 30px;
+    border-radius: 8px;
+}
+
+.history-slide {
+    display: none;
+    animation: fadeInSlide 0.4s ease forwards;
+}
+
+.history-slide.active {
+    display: block;
+}
+
+.history-slide p {
     margin-bottom: 1.5rem;
+}
+
+@keyframes fadeInSlide {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* ADN Subtitles & List */
+.adn-subtitle {
+    color: var(--accent-color);
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+    font-size: 1.3rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    border-bottom: 1px solid rgba(230, 57, 70, 0.3);
+    padding-bottom: 5px;
+    display: inline-block;
+    text-align: left;
+    width: 100%;
+}
+
+.tactical-list {
+    list-style: none;
+    padding-left: 0;
+    margin-bottom: 1.5rem;
+    text-align: left;
+}
+
+.tactical-list li {
+    position: relative;
+    padding-left: 25px;
+    margin-bottom: 1rem;
+    color: var(--text-color);
+    line-height: 1.6;
+}
+
+.tactical-list li::before {
+    content: '>';
+    position: absolute;
+    left: 0;
+    top: 0;
+    color: var(--accent-color);
+    font-weight: bold;
+    font-family: monospace;
 }
 
 .history-visual {
@@ -1336,4 +1453,28 @@ footer {
         width: 95% !important; /* Takes up almost the full width */
         max-width: none !important;
     }
+}
+
+/* Age Warning Recruitment */
+.age-warning {
+    display: flex;
+    align-items: flex-start;
+    gap: 15px;
+    background: rgba(230, 57, 70, 0.1);
+    border-left: 3px solid var(--accent-color);
+    padding: 15px;
+    margin: 25px 0 20px 0;
+    border-radius: 4px;
+    font-size: 0.95rem;
+    color: var(--text-muted);
+}
+
+.age-warning .warning-icon {
+    color: var(--accent-color);
+    flex-shrink: 0;
+    margin-top: 2px;
+}
+
+.age-warning strong {
+    color: var(--text-color);
 }

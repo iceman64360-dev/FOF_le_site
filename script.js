@@ -61,6 +61,30 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     });
 });
 
+// History Tabs Logic
+const historyTabs = document.querySelectorAll('.history-tab');
+const historySlides = document.querySelectorAll('.history-slide');
+
+if(historyTabs.length > 0) {
+    historyTabs.forEach(tab => {
+        tab.addEventListener('click', () => {
+            // Remove active class from all tabs and slides
+            historyTabs.forEach(t => t.classList.remove('active'));
+            historySlides.forEach(s => s.classList.remove('active'));
+
+            // Add active class to clicked tab
+            tab.classList.add('active');
+
+            // Show corresponding slide
+            const targetId = tab.getAttribute('data-target');
+            const targetSlide = document.getElementById(targetId);
+            if (targetSlide) {
+                targetSlide.classList.add('active');
+            }
+        });
+    });
+}
+
 // Initial Tactical Fetch & Interval
 fetchTacticalData();
 setInterval(fetchTacticalData, 30000);
@@ -70,8 +94,23 @@ async function fetchTacticalData() {
     const statusEl = document.getElementById('js-server-status');
     const ratioEl = document.getElementById('hud-unit-ratio');
 
+    // Prevent network error spam on GitHub Pages by disabling localhost fetch in production
+    const isLocal = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1';
+    const apiUrl = isLocal ? 'http://localhost:3000/api/mod-data' : null; // Replace null with production URL later
+
+    if (!apiUrl) {
+        // Fallback offline mode for production (until backend is deployed)
+        if (statusEl) {
+            statusEl.textContent = 'HORS LIGNE';
+            statusEl.classList.remove('status-online');
+            statusEl.classList.add('status-offline');
+        }
+        if (ratioEl) ratioEl.textContent = '00 / 00';
+        return;
+    }
+
     try {
-        const response = await fetch('http://localhost:3000/api/mod-data');
+        const response = await fetch(apiUrl);
         if (!response.ok) throw new Error('API Offline');
         
         const data = await response.json();
@@ -85,7 +124,7 @@ async function fetchTacticalData() {
             statusEl.classList.add('status-online');
         }
     } catch (error) {
-        console.warn('Tactical API unreachable.');
+        if (isLocal) console.warn('Tactical API unreachable.');
         if (statusEl) {
             statusEl.textContent = 'HORS LIGNE';
             statusEl.classList.remove('status-online');
@@ -311,6 +350,3 @@ document.addEventListener('DOMContentLoaded', () => {
     if (hubSection) hubObserver.observe(hubSection);
 });
 
-// Initial Tactical Fetch & Interval
-fetchTacticalData();
-setInterval(fetchTacticalData, 30000);
