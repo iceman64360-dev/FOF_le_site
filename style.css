@@ -292,7 +292,7 @@ section {
     margin: 0 auto;
     display: flex;
     flex-direction: column;
-    align-items: center;
+    align-items: stretch; /* Permet à la nav et au texte de prendre 100% et de s'aligner */
 }
 
 .history-text {
@@ -311,28 +311,60 @@ section {
 }
 
 /* History Slides & Tabs */
+/* History Slides & Tabs */
 .history-nav {
-    display: flex;
-    justify-content: center;
-    gap: 15px;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* Grille 2x2 parfaite pour 4 onglets sur mobile */
+    gap: 8px;
     margin-bottom: 2rem;
-    flex-wrap: wrap; /* important pour mobile */
+    
+    /* UX Sticky (les onglets s'accrochent en haut pendant la lecture) */
+    position: sticky;
+    top: 70px; /* Sous la navbar */
+    z-index: 50; 
+    
+    /* UI Glassmorphism (Fond solide pour cacher le texte qui remonte) */
+    background: rgba(10, 15, 25, 0.95);
+    backdrop-filter: blur(10px);
+    padding: 10px;
+    border-radius: 8px;
+    border: 1px solid var(--glass-border);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+}
+
+/* On Desktop (large screens), we recenter nicely in a single row */
+@media (min-width: 768px) {
+    .history-nav {
+        display: flex;
+        justify-content: center;
+        gap: 15px;
+        padding: 15px;
+    }
 }
 
 .history-tab {
     background: rgba(10, 15, 25, 0.8);
     border: 1px solid var(--glass-border);
     color: var(--text-muted);
-    padding: 10px 20px;
+    padding: 10px 5px; /* Padding réduit pour écrans serrés */
     font-family: 'Rajdhani', sans-serif;
-    font-size: 1.1rem;
+    font-size: 0.85rem; /* Police ajustée pour mobile */
     font-weight: 600;
     cursor: pointer;
     transition: all 0.3s ease;
     text-transform: uppercase;
-    letter-spacing: 1px;
+    letter-spacing: 0.5px;
     position: relative;
     overflow: hidden;
+    text-align: center;
+}
+
+@media (min-width: 768px) {
+    .history-tab {
+        padding: 10px 20px;
+        font-size: 1.1rem;
+        letter-spacing: 1px;
+    }
 }
 
 .history-tab::before {
