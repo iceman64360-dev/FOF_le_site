@@ -140,11 +140,11 @@ class TacticalCarousel {
             
             let absDiff = Math.abs(diff);
 
-            // Adaptive Params
-            let shiftFactor = isMobile ? 50 : 75;
-            let depthFactor = isMobile ? 120 : 250;
-            let rotateFactor = isMobile ? -25 : -45;
-            let scaleFactor = isMobile ? 0.15 : 0.2;
+            // Adaptive Params (Pushed further apart for mobile to avoid overlap)
+            let shiftFactor = isMobile ? 100 : 75;
+            let depthFactor = isMobile ? 220 : 250;
+            let rotateFactor = isMobile ? -35 : -45;
+            let scaleFactor = isMobile ? 0.25 : 0.2;
             
             let translateX = diff * shiftFactor; 
             let translateZ = -absDiff * depthFactor; 
@@ -153,7 +153,7 @@ class TacticalCarousel {
             let zIndex = 100 - Math.round(absDiff * 10);
             let scale = 1 - (absDiff * scaleFactor);
 
-            if (absDiff > (isMobile ? 1.5 : 2.2)) {
+            if (absDiff > (isMobile ? 1.2 : 2.2)) {
                 opacity = 0;
                 item.style.visibility = 'hidden';
             } else {
@@ -295,6 +295,20 @@ document.addEventListener('DOMContentLoaded', () => {
             });
         }
     }
+
+    // Hub Ambiance Observer
+    const hubSection = document.getElementById('streamers');
+    const hubObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                document.body.classList.add('theme-streamer');
+            } else {
+                document.body.classList.remove('theme-streamer');
+            }
+        });
+    }, { threshold: 0.3 });
+
+    if (hubSection) hubObserver.observe(hubSection);
 });
 
 // Initial Tactical Fetch & Interval

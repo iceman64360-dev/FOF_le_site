@@ -27,6 +27,14 @@ body {
     background-color: var(--primary-color);
     color: var(--text-color);
     line-height: 1.6;
+    transition: background-color 0.8s ease, background-image 0.8s ease;
+}
+
+body.theme-streamer {
+    background-color: #050d1a;
+    background-image: 
+        radial-gradient(circle at 20% 30%, rgba(145, 70, 255, 0.05) 0%, transparent 40%),
+        radial-gradient(circle at 80% 70%, rgba(230, 57, 70, 0.05) 0%, transparent 40%);
 }
 
 h1, h2, h3 {
@@ -904,10 +912,33 @@ footer {
     .hud-value { font-size: 0.8rem; }
 }
 
-/* Official TV Monitor Styles */
+/* FOF LIVE HUB Styles */
+.hub-subtitle {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    margin-bottom: 30px;
+}
+
+.hub-line {
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--accent-color), transparent);
+    flex-grow: 1;
+    max-width: 100px;
+    opacity: 0.5;
+}
+
+.hub-subtitle h3 {
+    font-size: 1rem;
+    color: var(--text-color);
+    letter-spacing: 4px;
+    font-weight: 300;
+}
+
 .official-live-container {
     max-width: 900px;
-    margin: 40px auto 80px;
+    margin: 0 auto 100px;
     padding: 0 20px;
 }
 
@@ -1216,5 +1247,56 @@ footer {
         grid-template-columns: 1fr;
         max-width: 400px;
         margin: 0 auto;
+    }
+
+    /* Critical Overlap Fixes (Mobile) */
+    .social-links {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 15px;
+        margin-top: 20px;
+        justify-content: center;
+    }
+
+    .recruitment-card .tactical-label {
+        position: relative !important;
+        top: 0 !important;
+        left: 0 !important;
+        margin-bottom: 20px;
+        display: inline-block;
+        width: fit-content;
+    }
+
+    .recruitment-card .recruitment-title {
+        margin-top: 0 !important;
+    }
+
+    .carousel-nav {
+        padding: 8px !important;
+    }
+
+    /* Resize Title Vignettes on Mobile */
+    .tactical-label {
+        padding: 4px 12px !important;
+        border-left-width: 2px !important;
+        top: 10px !important;
+        left: 10px !important;
+    }
+
+    .label-prefix {
+        font-size: 0.45rem !important;
+        letter-spacing: 1px !important;
+    }
+
+    .label-title {
+        font-size: 0.75rem !important;
+    }
+
+    /* Resize Featured Badge */
+    .featured-badge {
+        padding: 3px 15px !important;
+        font-size: 0.6rem !important;
+        top: -12px !important;
+        left: 15px !important;
     }
 }
