@@ -1299,4 +1299,41 @@ footer {
         top: -12px !important;
         left: 15px !important;
     }
+
+    /* Pull up Dots and Reposition Arrows beneath cards */
+    .carousel-window {
+        height: 360px !important; /* Shrinks the empty space below cards */
+    }
+
+    .carousel-nav {
+        top: auto !important;
+        bottom: 10px !important; /* Places arrows at the bottom of the window */
+        transform: translateY(0) !important;
+        padding: 6px !important; /* Reduces the square size */
+        background: rgba(10, 25, 47, 0.7) !important; 
+    }
+
+    .carousel-nav svg {
+        width: 24px !important; /* Shrinks the icon */
+        height: 24px !important;
+    }
+
+    .carousel-nav.prev {
+        left: 10% !important; /* Aligns perfectly with the left edge of the 80% wide card */
+    }
+
+    .carousel-nav.next {
+        right: 10% !important; /* Aligns perfectly with the right edge of the 80% wide card */
+    }
+
+    .carousel-indicators {
+        margin-top: 0px !important; /* Pull dots up closer to the arrows */
+        padding: 5px 0 !important;
+    }
+
+    /* Expand Image Gallery to hide side items on mobile */
+    .carousel-window .gallery-item {
+        width: 95% !important; /* Takes up almost the full width */
+        max-width: none !important;
+    }
 }
