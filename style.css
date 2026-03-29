@@ -142,16 +142,38 @@ nav.scrolled {
 .hero {
     height: 100vh;
     width: 100%;
-    background: linear-gradient(rgba(10, 25, 47, 0.7), rgba(10, 25, 47, 0.7)), url('assets/hero-bg.png');
-    background-size: cover;
-    background-position: center;
-    background-attachment: fixed;
+    position: relative;
+    overflow: hidden;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     text-align: center;
     padding: 0 5%;
+    z-index: 1;
+}
+
+.hero-video {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 100vw;
+    height: 100vh;
+    object-fit: cover;
+    transform: translate(-50%, -50%);
+    z-index: -2;
+    pointer-events: none;
+}
+
+.hero-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(10, 25, 47, 0.75); /* Filtre Bleu FOF Opaque pour contraste */
+    z-index: -1;
+    pointer-events: none;
 }
 
 .hero img {
