@@ -27,6 +27,7 @@
             <li><a href="#accueil">Accueil</a></li>
             <li><a href="#historique">Historique</a></li>
             <li><a href="#galerie">Galerie</a></li>
+            <li><a href="#streamers">Streamers</a></li>
             <li><a href="#contact">Contact</a></li>
         </ul>
         <div class="nav-mobile-btn" id="nav-toggle">
@@ -40,7 +41,7 @@
     <section class="hero" id="accueil">
         <img src="logo_FOF.png" alt="FOF Logo Large" class="reveal">
         <h1 class="reveal">Force Opérationnelle Française</h1>
-        
+
         <!-- Live HUD Tactical Bar -->
         <div class="tactical-hud-bar reveal">
             <div class="hud-item">
@@ -82,6 +83,7 @@
 
         <!-- Featured Tactical Media Player -->
         <div class="video-featured reveal">
+            <div class="featured-badge">À LA UNE</div>
             <div class="video-container" id="video-player">
                 <div class="tactical-label">
                     <div class="label-content">
@@ -90,11 +92,10 @@
                     </div>
                 </div>
                 <!-- YouTube Embed for performance & GitHub compatibility -->
-                <iframe id="fof-video-frame" 
-                    src="https://www.youtube.com/embed/dQw4w9WgXcQ?enablejsapi=1&rel=0&showinfo=0" 
-                    title="FOF Opération Gardien - Trailer Officiel"
-                    frameborder="0" 
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                <iframe id="fof-video-frame"
+                    src="https://www.youtube.com/embed/dQw4w9WgXcQ?enablejsapi=1&rel=0&showinfo=0"
+                    title="FOF Opération Gardien - Trailer Officiel" frameborder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                     allowfullscreen>
                 </iframe>
             </div>
@@ -102,7 +103,7 @@
 
         <div class="carousel-section reveal">
             <div class="carousel-window">
-                <div class="carousel-track" id="carousel-track">
+                <div class="carousel-track" id="gallery-track">
                     <div class="gallery-item">
                         <div class="tactical-label">
                             <div class="label-content">
@@ -161,21 +162,274 @@
             </div>
 
             <!-- Navigation HUD -->
-            <button class="carousel-nav prev" id="prev-btn" title="Précédent">
+            <button class="carousel-nav prev" id="gallery-prev" title="Précédent">
                 <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none"
                     stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                     <path d="m15 18-6-6 6-6" />
                 </svg>
             </button>
-            <button class="carousel-nav next" id="next-btn" title="Suivant">
+            <button class="carousel-nav next" id="gallery-next" title="Suivant">
                 <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none"
                     stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                     <path d="m9 18 6-6-6-6" />
                 </svg>
             </button>
-
-            <div class="carousel-indicators" id="carousel-dots"></div>
         </div>
+        <div class="carousel-indicators" id="gallery-dots"></div>
+    </section>
+
+    <section id="streamers" class="reveal">
+        <h2 class="section-title">Nos Streamers Affiliés</h2>
+
+        <!-- Official Live Monitor (TV Frame) -->
+        <div class="official-live-container">
+            <div class="tv-monitor-frame">
+                <div class="featured-badge">LE DIRECT</div>
+                <div class="tv-screen">
+                    <div class="crt-overlay"></div>
+                    <div id="twitch-embed"></div>
+                </div>
+                <div class="tv-bezel-details">
+                    <span class="tv-brand">FOF TACTICAL MONITOR</span>
+                    <div class="tv-controls">
+                        <span class="signal-tag">SIGNAL ACQUIS</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="carousel-section">
+            <div class="carousel-window">
+                <div class="carousel-track" id="streamers-track">
+                    <!-- Streamer 1: fof_arma (OFFICEL) -->
+                    <div class="streamer-card is-official">
+                        <div class="streamer-header">
+                            <div class="streamer-avatar">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24"
+                                    fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round"
+                                    stroke-linejoin="round" class="twitch-icon">
+                                    <path d="M21 2H3v16h5v4l4-4h5l4-4V2zm-10 9V7m5 4V7" />
+                                </svg>
+                            </div>
+                            <div class="streamer-status status-official">OFFICIEL</div>
+                        </div>
+                        <div class="streamer-info">
+                            <h3>fof_arma</h3>
+                            <span class="official-label">CHAINE OFFICIELLE</span>
+                        </div>
+                        <a href="https://www.twitch.tv/fof_arma" target="_blank" rel="noopener"
+                            class="btn-twitch">VOIR</a>
+                    </div>
+
+                    <!-- Streamer 2: cpt_iceman64 -->
+                    <div class="streamer-card">
+                        <div class="streamer-header">
+                            <div class="streamer-avatar"><svg xmlns="http://www.w3.org/2000/svg" width="40" height="40"
+                                    viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1">
+                                    <path d="M21 2H3v16h5v4l4-4h5l4-4V2zm-10 9V7m5 4V7" />
+                                </svg></div>
+                            <div class="streamer-status">COMMANDEMENT</div>
+                        </div>
+                        <div class="streamer-info">
+                            <h3>cpt_iceman64</h3>
+                        </div>
+                        <a href="https://www.twitch.tv/cpt_iceman64" target="_blank" rel="noopener"
+                            class="btn-twitch">VOIR</a>
+                    </div>
+
+                    <!-- Streamer 3: audraaay -->
+                    <div class="streamer-card">
+                        <div class="streamer-header">
+                            <div class="streamer-avatar"><svg xmlns="http://www.w3.org/2000/svg" width="40" height="40"
+                                    viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1">
+                                    <path d="M21 2H3v16h5v4l4-4h5l4-4V2zm-10 9V7m5 4V7" />
+                                </svg></div>
+                            <div class="streamer-status">AFFILIÉ</div>
+                        </div>
+                        <div class="streamer-info">
+                            <h3>audraaay</h3>
+                        </div>
+                        <a href="https://www.twitch.tv/audraaay" target="_blank" rel="noopener"
+                            class="btn-twitch">VOIR</a>
+                    </div>
+
+                    <!-- Streamer 4: rackboytv -->
+                    <div class="streamer-card">
+                        <div class="streamer-header">
+                            <div class="streamer-avatar"><svg xmlns="http://www.w3.org/2000/svg" width="40" height="40"
+                                    viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1">
+                                    <path d="M21 2H3v16h5v4l4-4h5l4-4V2zm-10 9V7m5 4V7" />
+                                </svg></div>
+                            <div class="streamer-status">AFFILIÉ</div>
+                        </div>
+                        <div class="streamer-info">
+                            <h3>rackboytv</h3>
+                        </div>
+                        <a href="https://www.twitch.tv/rackboytv" target="_blank" rel="noopener"
+                            class="btn-twitch">VOIR</a>
+                    </div>
+
+                    <!-- Streamer 5: sgydos38 -->
+                    <div class="streamer-card">
+                        <div class="streamer-header">
+                            <div class="streamer-avatar"><svg xmlns="http://www.w3.org/2000/svg" width="40" height="40"
+                                    viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1">
+                                    <path d="M21 2H3v16h5v4l4-4h5l4-4V2zm-10 9V7m5 4V7" />
+                                </svg></div>
+                            <div class="streamer-status">AFFILIÉ</div>
+                        </div>
+                        <div class="streamer-info">
+                            <h3>sgydos38</h3>
+                        </div>
+                        <a href="https://www.twitch.tv/sgydos38" target="_blank" rel="noopener"
+                            class="btn-twitch">VOIR</a>
+                    </div>
+
+                    <!-- Streamer 6: tipolixxx -->
+                    <div class="streamer-card">
+                        <div class="streamer-header">
+                            <div class="streamer-avatar"><svg xmlns="http://www.w3.org/2000/svg" width="40" height="40"
+                                    viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1">
+                                    <path d="M21 2H3v16h5v4l4-4h5l4-4V2zm-10 9V7m5 4V7" />
+                                </svg></div>
+                            <div class="streamer-status">AFFILIÉ</div>
+                        </div>
+                        <div class="streamer-info">
+                            <h3>tipolixxx</h3>
+                        </div>
+                        <a href="https://www.twitch.tv/tipolixxx" target="_blank" rel="noopener"
+                            class="btn-twitch">VOIR</a>
+                    </div>
+
+                    <!-- Streamer 7: bobfuraxx -->
+                    <div class="streamer-card">
+                        <div class="streamer-header">
+                            <div class="streamer-avatar"><svg xmlns="http://www.w3.org/2000/svg" width="40" height="40"
+                                    viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1">
+                                    <path d="M21 2H3v16h5v4l4-4h5l4-4V2zm-10 9V7m5 4V7" />
+                                </svg></div>
+                            <div class="streamer-status">AFFILIÉ</div>
+                        </div>
+                        <div class="streamer-info">
+                            <h3>bobfuraxx</h3>
+                        </div>
+                        <a href="https://www.twitch.tv/bobfuraxx" target="_blank" rel="noopener"
+                            class="btn-twitch">VOIR</a>
+                    </div>
+
+                    <!-- Streamer 8: hybris95 -->
+                    <div class="streamer-card">
+                        <div class="streamer-header">
+                            <div class="streamer-avatar"><svg xmlns="http://www.w3.org/2000/svg" width="40" height="40"
+                                    viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1">
+                                    <path d="M21 2H3v16h5v4l4-4h5l4-4V2zm-10 9V7m5 4V7" />
+                                </svg></div>
+                            <div class="streamer-status">AFFILIÉ</div>
+                        </div>
+                        <div class="streamer-info">
+                            <h3>hybris95</h3>
+                        </div>
+                        <a href="https://www.twitch.tv/hybris95" target="_blank" rel="noopener"
+                            class="btn-twitch">VOIR</a>
+                    </div>
+
+                    <!-- Streamer 9: toc_norris -->
+                    <div class="streamer-card">
+                        <div class="streamer-header">
+                            <div class="streamer-avatar"><svg xmlns="http://www.w3.org/2000/svg" width="40" height="40"
+                                    viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1">
+                                    <path d="M21 2H3v16h5v4l4-4h5l4-4V2zm-10 9V7m5 4V7" />
+                                </svg></div>
+                            <div class="streamer-status">AFFILIÉ</div>
+                        </div>
+                        <div class="streamer-info">
+                            <h3>toc_norris</h3>
+                        </div>
+                        <a href="https://www.twitch.tv/toc_norris" target="_blank" rel="noopener"
+                            class="btn-twitch">VOIR</a>
+                    </div>
+
+                    <!-- Streamer 10: lachipsenragee -->
+                    <div class="streamer-card">
+                        <div class="streamer-header">
+                            <div class="streamer-avatar"><svg xmlns="http://www.w3.org/2000/svg" width="40" height="40"
+                                    viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1">
+                                    <path d="M21 2H3v16h5v4l4-4h5l4-4V2zm-10 9V7m5 4V7" />
+                                </svg></div>
+                            <div class="streamer-status">AFFILIÉ</div>
+                        </div>
+                        <div class="streamer-info">
+                            <h3>lachipsenragee</h3>
+                        </div>
+                        <a href="https://www.twitch.tv/lachipsenragee" target="_blank" rel="noopener"
+                            class="btn-twitch">VOIR</a>
+                    </div>
+
+                    <!-- Streamer 11: nouhar94 -->
+                    <div class="streamer-card">
+                        <div class="streamer-header">
+                            <div class="streamer-avatar"><svg xmlns="http://www.w3.org/2000/svg" width="40" height="40"
+                                    viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1">
+                                    <path d="M21 2H3v16h5v4l4-4h5l4-4V2zm-10 9V7m5 4V7" />
+                                </svg></div>
+                            <div class="streamer-status">AFFILIÉ</div>
+                        </div>
+                        <div class="streamer-info">
+                            <h3>nouhar94</h3>
+                        </div>
+                        <a href="https://www.twitch.tv/nouhar94" target="_blank" rel="noopener"
+                            class="btn-twitch">VOIR</a>
+                    </div>
+
+                    <!-- Streamer 12: azenfr -->
+                    <div class="streamer-card">
+                        <div class="streamer-header">
+                            <div class="streamer-avatar"><svg xmlns="http://www.w3.org/2000/svg" width="40" height="40"
+                                    viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1">
+                                    <path d="M21 2H3v16h5v4l4-4h5l4-4V2zm-10 9V7m5 4V7" />
+                                </svg></div>
+                            <div class="streamer-status">AFFILIÉ</div>
+                        </div>
+                        <div class="streamer-info">
+                            <h3>azenfr</h3>
+                        </div>
+                        <a href="https://www.twitch.tv/azenfr" target="_blank" rel="noopener"
+                            class="btn-twitch">VOIR</a>
+                    </div>
+
+                    <!-- Streamer 13: clickboomz -->
+                    <div class="streamer-card">
+                        <div class="streamer-header">
+                            <div class="streamer-avatar"><svg xmlns="http://www.w3.org/2000/svg" width="40" height="40"
+                                    viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1">
+                                    <path d="M21 2H3v16h5v4l4-4h5l4-4V2zm-10 9V7m5 4V7" />
+                                </svg></div>
+                            <div class="streamer-status">AFFILIÉ</div>
+                        </div>
+                        <div class="streamer-info">
+                            <h3>clickboomz</h3>
+                        </div>
+                        <a href="https://www.twitch.tv/clickboomz" target="_blank" rel="noopener"
+                            class="btn-twitch">VOIR</a>
+                    </div>
+                </div>
+
+                <!-- Streamers Navigation -->
+                <button class="carousel-nav prev" id="streamers-prev" title="Précédent">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none"
+                        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="m15 18-6-6 6-6" />
+                    </svg>
+                </button>
+                <button class="carousel-nav next" id="streamers-next" title="Suivant">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none"
+                        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="m9 18 6-6-6-6" />
+                    </svg>
+                </button>
+                </button>
+            </div>
+            <div class="carousel-indicators" id="streamers-dots"></div>
     </section>
 
     <!-- Contact Section -->
@@ -188,42 +442,74 @@
                     notre Discord pour une réponse immédiate.</p>
 
                 <div class="social-links">
-                    <a href="https://discord.gg/hyDbEBJs7X" class="social-icon" title="Discord" target="_blank" rel="noopener">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18.5 4h-13a3 3 0 0 0-3 3v10a3 3 0 0 0 3 3h13a3 3 0 0 0 3-3V7a3 3 0 0 0-3-3z"/><path d="M8 9a2 2 0 1 0 0 4 2 2 0 0 0 0-4z"/><path d="M16 9a2 2 0 1 0 0 4 2 2 0 0 0 0-4z"/></svg>
+                    <a href="https://discord.gg/hyDbEBJs7X" class="social-icon" title="Discord" target="_blank"
+                        rel="noopener">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M18.5 4h-13a3 3 0 0 0-3 3v10a3 3 0 0 0 3 3h13a3 3 0 0 0 3-3V7a3 3 0 0 0-3-3z" />
+                            <path d="M8 9a2 2 0 1 0 0 4 2 2 0 0 0 0-4z" />
+                            <path d="M16 9a2 2 0 1 0 0 4 2 2 0 0 0 0-4z" />
+                        </svg>
                     </a>
-                    <a href="https://www.twitch.tv/fof_arma" class="social-icon" title="Twitch" target="_blank" rel="noopener">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 2H3v16h5v4l4-4h5l4-4V2zm-10 9V7m5 4V7"/></svg>
+                    <a href="https://www.twitch.tv/fof_arma" class="social-icon" title="Twitch" target="_blank"
+                        rel="noopener">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M21 2H3v16h5v4l4-4h5l4-4V2zm-10 9V7m5 4V7" />
+                        </svg>
                     </a>
-                    <a href="#" class="social-icon" title="Instagram" target="_blank" rel="noopener">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
+                    <a href="https://www.instagram.com/fof_instragram" class="social-icon" title="Instagram"
+                        target="_blank" rel="noopener">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+                            <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+                            <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+                        </svg>
                     </a>
                     <a href="#" class="social-icon" title="TikTok" target="_blank" rel="noopener">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 12a4 4 0 1 0 4 4V4a5 5 0 0 0 5 5"></path></svg>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M9 12a4 4 0 1 0 4 4V4a5 5 0 0 0 5 5"></path>
+                        </svg>
                     </a>
-                    <a href="https://www.youtube.com/@TV-FOF" class="social-icon" title="YouTube" target="_blank" rel="noopener">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.42a2.78 2.78 0 0 0-1.94 2C1 8.12 1 12 1 12s0 3.88.46 5.58a2.78 2.78 0 0 0 1.94 2c1.72.42 8.6.42 8.6.42s6.88 0 8.6-.42a2.78 2.78 0 0 0 1.94-2C23 15.88 23 12 23 12s0-3.88-.46-5.58z"/><polygon points="9.75 15.02 15.5 12 9.75 8.98 9.75 15.02"/></svg>
+                    <a href="https://www.youtube.com/@TV-FOF" class="social-icon" title="YouTube" target="_blank"
+                        rel="noopener">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path
+                                d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.42a2.78 2.78 0 0 0-1.94 2C1 8.12 1 12 1 12s0 3.88.46 5.58a2.78 2.78 0 0 0 1.94 2c1.72.42 8.6.42 8.6.42s6.88 0 8.6-.42a2.78 2.78 0 0 0 1.94-2C23 15.88 23 12 23 12s0-3.88-.46-5.58z" />
+                            <polygon points="9.75 15.02 15.5 12 9.75 8.98 9.75 15.02" />
+                        </svg>
                     </a>
                     <a href="#" class="social-icon" title="Facebook" target="_blank" rel="noopener">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path></svg>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path>
+                        </svg>
                     </a>
                 </div>
             </div>
 
-            <form class="contact-form">
-                <div class="form-group">
-                    <label>Nom / Pseudo</label>
-                    <input type="text" placeholder="Ex: Jean Dupont" required>
+            <div class="recruitment-card">
+                <div class="tactical-label">
+                    <div class="label-content">
+                        <span class="label-prefix">RECRUTEMENT</span>
+                        <span class="label-title">Statut : Ouvert</span>
+                    </div>
                 </div>
-                <div class="form-group">
-                    <label>Email</label>
-                    <input type="email" placeholder="email@exemple.com" required>
+                <h3 class="recruitment-title">Rejoindre les rangs</h3>
+                <p>Bienvenue dans l'armée Française FOF ! Nous privilégions une approche personnelle : au lieu d'une
+                    lettre de motivation traditionnelle, nous vous invitons à nous partager vos aspirations et votre
+                    intérêt pour la communauté.</p>
+                <div class="recruitment-steps">
+                    <div class="step">1. Rejoignez notre serveur Discord</div>
+                    <div class="step">2. Présentez vos motivations avec authenticité</div>
+                    <div class="step">3. Ouvrez un "Ticket" pour échanger avec le commandement</div>
                 </div>
-                <div class="form-group">
-                    <label>Message</label>
-                    <textarea rows="5" placeholder="Votre message ou candidature..."></textarea>
-                </div>
-                <button type="submit" class="btn-submit">Envoyer la transmission</button>
-            </form>
+                <a href="https://discord.gg/hyDbEBJs7X" class="btn-recruitment" target="_blank" rel="noopener">Ouvrir le
+                    centre de recrutement</a>
+            </div>
         </div>
     </section>
 
@@ -234,6 +520,16 @@
     </footer>
 
     <!-- JS -->
+    <!-- Lightbox Overlay -->
+    <div id="lightbox" class="lightbox">
+        <span class="lightbox-close">&times;</span>
+        <div class="lightbox-content">
+            <img id="lightbox-img" src="" alt="Agrandissement">
+            <div id="lightbox-caption" class="lightbox-caption"></div>
+        </div>
+    </div>
+
+    <script src="https://player.twitch.tv/js/embed/v1.js"></script>
     <script src="script.js"></script>
 </body>
 
