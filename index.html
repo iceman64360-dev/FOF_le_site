@@ -80,7 +80,7 @@
     <section id="galerie" class="reveal">
         <h2 class="section-title">Galerie Opérationnelle</h2>
 
-        <!-- Featured Video Player -->
+        <!-- Featured Tactical Media Player -->
         <div class="video-featured reveal">
             <div class="video-container" id="video-player">
                 <div class="tactical-label">
@@ -89,42 +89,14 @@
                         <span class="label-title">Gardien</span>
                     </div>
                 </div>
-                <video id="fof-video" poster="assets/gallery/gallery1.png">
-                    <source src="assets/videos/operation_gardien.mp4" type="video/mp4">
-                </video>
-                <div class="video-controls">
-                    <button class="control-btn" id="play-btn" title="Lecture / Pause">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
-                            fill="currentColor">
-                            <path d="M8 5v14l11-7z" />
-                        </svg>
-                    </button>
-                    <div class="video-timeline">
-                        <div class="timeline-bar">
-                            <div class="timeline-progress" id="progress-bar"></div>
-                        </div>
-                    </div>
-                    <div class="video-info">
-                        <span class="video-tag">REPORTAGE FOF</span>
-                        <span class="video-name">Opération Gardien</span>
-                    </div>
-                    <button class="control-btn" id="fs-btn" title="Plein écran">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
-                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                            <path d="M15 3h6v6" />
-                            <path d="M9 21H3v-6" />
-                            <path d="M21 3l-7 7" />
-                            <path d="M3 21l7-7" />
-                        </svg>
-                    </button>
-                </div>
-                <div class="video-overlay" id="play-overlay">
-                    <div class="play-icon">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 24 24" fill="white">
-                            <path d="M8 5v14l11-7z" />
-                        </svg>
-                    </div>
-                </div>
+                <!-- YouTube Embed for performance & GitHub compatibility -->
+                <iframe id="fof-video-frame" 
+                    src="https://www.youtube.com/embed/dQw4w9WgXcQ?enablejsapi=1&rel=0&showinfo=0" 
+                    title="FOF Opération Gardien - Trailer Officiel"
+                    frameborder="0" 
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                    allowfullscreen>
+                </iframe>
             </div>
         </div>
 
@@ -216,34 +188,20 @@
                     notre Discord pour une réponse immédiate.</p>
 
                 <div class="social-links">
-                    <a href="#" class="social-icon" title="Discord">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
-                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                            <path d="M18.5 4h-13a3 3 0 0 0-3 3v10a3 3 0 0 0 3 3h13a3 3 0 0 0 3-3V7a3 3 0 0 0-3-3z" />
-                            <path d="M8 9a2 2 0 1 0 0 4 2 2 0 0 0 0-4z" />
-                            <path d="M16 9a2 2 0 1 0 0 4 2 2 0 0 0 0-4z" />
-                        </svg>
+                    <a href="https://discord.gg/hyDbEBJs7X" class="social-icon" title="Discord" target="_blank" rel="noopener">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18.5 4h-13a3 3 0 0 0-3 3v10a3 3 0 0 0 3 3h13a3 3 0 0 0 3-3V7a3 3 0 0 0-3-3z"/><path d="M8 9a2 2 0 1 0 0 4 2 2 0 0 0 0-4z"/><path d="M16 9a2 2 0 1 0 0 4 2 2 0 0 0 0-4z"/></svg>
                     </a>
-                    <a href="#" class="social-icon" title="YouTube">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
-                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                            <path
-                                d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.42a2.78 2.78 0 0 0-1.94 2C1 8.12 1 12 1 12s0 3.88.46 5.58a2.78 2.78 0 0 0 1.94 2c1.72.42 8.6.42 8.6.42s6.88 0 8.6-.42a2.78 2.78 0 0 0 1.94-2C23 15.88 23 12 23 12s0-3.88-.46-5.58z" />
-                            <polygon points="9.75 15.02 15.5 12 9.75 8.98 9.75 15.02" />
-                        </svg>
+                    <a href="https://www.twitch.tv/fof_arma" class="social-icon" title="Twitch" target="_blank" rel="noopener">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 2H3v16h5v4l4-4h5l4-4V2zm-10 9V7m5 4V7"/></svg>
                     </a>
-                    <a href="#" class="social-icon" title="Twitter/X">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
-                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                            <path d="M4 4l11.733 16h4.267l-11.733 -16z" />
-                            <path d="M4 20l6.768 -6.768m2.46 -2.46l6.772 -6.772" />
-                        </svg>
+                    <a href="#" class="social-icon" title="Instagram" target="_blank" rel="noopener">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
                     </a>
-                    <a href="#" class="social-icon" title="Twitch">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
-                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                            <path d="M21 2H3v16h5v4l4-4h5l4-4V2zm-10 9V7m5 4V7" />
-                        </svg>
+                    <a href="#" class="social-icon" title="TikTok" target="_blank" rel="noopener">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 12a4 4 0 1 0 4 4V4a5 5 0 0 0 5 5"></path></svg>
+                    </a>
+                    <a href="#" class="social-icon" title="YouTube" target="_blank" rel="noopener">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.42a2.78 2.78 0 0 0-1.94 2C1 8.12 1 12 1 12s0 3.88.46 5.58a2.78 2.78 0 0 0 1.94 2c1.72.42 8.6.42 8.6.42s6.88 0 8.6-.42a2.78 2.78 0 0 0 1.94-2C23 15.88 23 12 23 12s0-3.88-.46-5.58z"/><polygon points="9.75 15.02 15.5 12 9.75 8.98 9.75 15.02"/></svg>
                     </a>
                 </div>
             </div>

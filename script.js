@@ -83,57 +83,9 @@ if (contactForm) {
     });
 }
 
-// Custom Video Player Logic
-const fofVideo = document.getElementById('fof-video');
-const videoPlayer = document.getElementById('video-player');
-const playBtn = document.getElementById('play-btn');
-const fsBtn = document.getElementById('fs-btn');
-const progressBar = document.getElementById('progress-bar');
-
-if (fofVideo) {
-    function togglePlay() {
-        if (fofVideo.paused) {
-            fofVideo.play();
-            videoPlayer.classList.add('playing');
-            playBtn.innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z"/></svg>';
-        } else {
-            fofVideo.pause();
-            videoPlayer.classList.remove('playing');
-            playBtn.innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>';
-        }
-    }
-
-    playBtn.addEventListener('click', (e) => {
-        e.stopPropagation();
-        togglePlay();
-    });
-
-    videoPlayer.addEventListener('click', () => {
-        togglePlay();
-    });
-
-    fofVideo.addEventListener('timeupdate', () => {
-        const progress = (fofVideo.currentTime / fofVideo.duration) * 100;
-        progressBar.style.width = `${progress}%`;
-    });
-
-    fsBtn.addEventListener('click', (e) => {
-        e.stopPropagation();
-        if (fofVideo.requestFullscreen) {
-            fofVideo.requestFullscreen();
-        } else if (fofVideo.webkitRequestFullscreen) {
-            fofVideo.webkitRequestFullscreen();
-        } else if (fofVideo.msRequestFullscreen) {
-            fofVideo.msRequestFullscreen();
-        }
-    });
-
-    // Reset when ended
-    fofVideo.addEventListener('ended', () => {
-        videoPlayer.classList.remove('playing');
-        playBtn.innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>';
-    });
-}
+// Initial Tactical Fetch & Interval
+fetchTacticalData();
+setInterval(fetchTacticalData, 30000);
 
 // Tactical Data Fetcher (from Moderation Dashboard)
 async function fetchTacticalData() {
