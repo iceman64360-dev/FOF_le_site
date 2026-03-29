@@ -398,12 +398,21 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Optionnel : Intégration du lecteur Twitch en direct
     if (document.getElementById('twitch-embed')) {
-        if (typeof Twitch !== 'undefined') {
+        // Sécurité système : Le lecteur Twitch plante sévèrement si ouvert depuis le disque dur (sans serveur)
+        const isLocalFile = window.location.protocol === 'file:';
+        
+        if (isLocalFile) {
+            document.getElementById('twitch-embed').innerHTML = '<div style="display:flex;justify-content:center;align-items:center;height:100%;background:rgba(10,15,25,0.8);color:var(--text-muted);text-align:center;padding:2rem;font-size:0.9rem;border:1px dashed var(--glass-border);">📺<br><br>Lecteur Twitch bloqué par sécurité de Google Chrome.<br>Ouvrez le site sur un serveur (Live Server) ou mettez-le en ligne pour visionner le direct.</div>';
+        } else if (typeof Twitch !== 'undefined') {
+            // Génération d'une liste propre de domaines autorisés
+            const validParents = ["localhost", "127.0.0.1", "fof-arma.github.io"];
+            if (window.location.hostname) validParents.push(window.location.hostname);
+
             new Twitch.Player("twitch-embed", {
                 width: "100%",
                 height: "100%",
                 channel: "fof_arma",
-                parent: ["localhost", "127.0.0.1", "iceman64360-dev.github.io", window.location.hostname],
+                parent: validParents,
                 autoplay: true,
                 muted: true,
                 controls: true
@@ -435,24 +444,31 @@ document.addEventListener('DOMContentLoaded', () => {
  * et vérifier si la chaîne est actuellement en direct.
  */
 async function loadTwitchAvatars() {
-    const streamerCards = document.querySelectorAll('.streamer-card');
+    // 1. Évite la sécurité CORS agressive "origin null" si on regarde le site en local sans serveur
+    if (window.location.protocol === 'file:') {
+        console.warn("Désactivation des requêtes Twitch : Le fonctionnement local bloque les appels d'API externes.");
+        return;
+    }
+
+    const streamerCards = Array.from(document.querySelectorAll('.streamer-card'));
     
-    streamerCards.forEach(async (card) => {
+    // 2. Boucle séquentielle (for...of) pour éviter d'envoyer 26 requêtes à la milliseconde (Erreur 429 Too Many Requests)
+    for (const card of streamerCards) {
         const usernameEl = card.querySelector('h3');
         const avatarContainer = card.querySelector('.streamer-avatar');
         const statusBadge = card.querySelector('.streamer-status'); // Badge "AFFILIÉ"
         
-        if (!usernameEl || !avatarContainer) return;
+        if (!usernameEl || !avatarContainer) continue;
         const username = usernameEl.textContent.trim();
 
         try {
-            // Lancement de 2 requêtes simultanées pour gagner du temps (Avatar + Uptime)
+            // Lancement de 2 requêtes simultanées pour ce streamer particulier
             const [avatarRes, uptimeRes] = await Promise.all([
                 fetch(`https://decapi.me/twitch/avatar/${username}`),
                 fetch(`https://decapi.me/twitch/uptime/${username}`)
             ]);
             
-            // 1. Mise à jour de l'Avatar
+            // Mise à jour de l'Avatar
             if (avatarRes.ok) {
                 const avatarUrl = await avatarRes.text();
                 if (avatarUrl && avatarUrl.startsWith('http') && !avatarUrl.includes("User not found")) {
@@ -462,28 +478,29 @@ async function loadTwitchAvatars() {
                 }
             }
 
-            // 2. Mise à jour du Statut (Live / Offline)
+            // Mise à jour du Statut (Live / Offline)
             if (uptimeRes.ok && statusBadge) {
                 const uptimeText = await uptimeRes.text();
                 
                 if (uptimeText && !uptimeText.includes("offline") && !uptimeText.includes("User not found")) {
-                    // Le Streamer est EN DIRECT !
                     statusBadge.innerHTML = '🔴 EN DIRECT';
-                    statusBadge.style.background = 'rgba(230, 57, 70, 0.8)'; // Rouge FOF Opaque
+                    statusBadge.style.background = 'rgba(230, 57, 70, 0.8)';
                     statusBadge.style.color = '#ffffff';
                     statusBadge.style.boxShadow = '0 0 10px rgba(230, 57, 70, 0.5)';
-                    statusBadge.style.animation = 'signal-pulse 2s infinite'; // Animation de clignotement
+                    statusBadge.style.animation = 'signal-pulse 2s infinite';
                 } else {
-                    // Le Streamer est HORS LIGNE
                     statusBadge.innerHTML = '⚫ HORS LIGNE';
-                    statusBadge.style.background = 'rgba(10, 15, 25, 0.8)'; // Sombre
+                    statusBadge.style.background = 'rgba(10, 15, 25, 0.8)';
                     statusBadge.style.color = 'var(--text-muted)';
                     statusBadge.style.border = '1px solid var(--glass-border)';
                 }
             }
+            
+            // 3. Pause artificielle de 300 millisecondes avant le streamer suivant pour ménager l'API publique
+            await new Promise(resolve => setTimeout(resolve, 300));
 
         } catch (error) {
             console.warn(`Données Twitch inaccessibles pour ${username}.`);
         }
-    });
+    }
 }
